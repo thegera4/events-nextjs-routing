@@ -1,36 +1,21 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Explanation
 
-First, run the development server:
+In this simple app, the purpose was to practice the concepts of file-based routing one of the core features of NextJs: index routes, nested routes, dynamic route segments and linking to dynamic paths.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+So the first page is your home page , where you see a list of "featured events"
+![home](https://user-images.githubusercontent.com/84020433/211227848-ab1be4e4-e435-406e-a709-14fdf666dbfa.PNG)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can navigate to the page of each selected item, by clicking in the "Explore event" button and see the event details:
+![event_item](https://user-images.githubusercontent.com/84020433/211227897-31c50179-a113-4bf1-8f86-48f70aa22ab7.PNG)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Or you can click in "Browse All Events" option in the top bar, so you can see all of the events and some filter controls to filter the list:
+![all_events](https://user-images.githubusercontent.com/84020433/211227951-1d1f60d5-fac4-47de-9b2b-80d720668582.PNG)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+If you filter by year 2021 and month may, you will get the list of events for that date:
+![filtered_events_may](https://user-images.githubusercontent.com/84020433/211227988-0c2ef938-529c-428f-940d-7e584c8b0112.PNG)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+And the are some error screens for events not found as well as invalid filter values:
+![no_events_found](https://user-images.githubusercontent.com/84020433/211228024-da07dff2-d6f9-4294-9fa7-602ccd2e1e5d.PNG)
+![invalid_filter](https://user-images.githubusercontent.com/84020433/211228029-0b52b2be-cc7f-4fe4-9a3d-bfb23ce0435f.PNG)
