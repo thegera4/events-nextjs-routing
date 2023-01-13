@@ -6,6 +6,7 @@ import ResultsTitle from '../../components/events/results-title'
 import Button from '../../components/ui/button'
 import ErrorAlert from '../../components/ui/error-alert'
 import useSWR from 'swr'
+import Head from 'next/head'
 
 function FilteredEventsPage(props) {
 
@@ -38,19 +39,35 @@ function FilteredEventsPage(props) {
     }
   }, [data])
 
-  if (!filterData) {
-    return <p className="center">Loading...</p>
-  }
-
   const filteredYear = filterData[0]
   const filteredMonth = filterData[1]
 
   const numYear = +filteredYear
   const numMonth = +filteredMonth
 
+  const pageHeadData = (
+    <Head>  
+      <title>Filtered Events</title>
+      <meta 
+        name="description" 
+        content={`All events for ${props.date.month}/${props.date.year}`}
+      />
+    </Head>
+  )
+
+  if (!filterData) {
+    return (
+      <>
+        {pageHeadData}
+        <p className='center'>Loading...</p>
+      </>
+    )
+  }
+
   if (props.hasError) {
     return (
       <>
+        {pageHeadData}
         <ErrorAlert >
           <p>Invalid filter. Please adjust your values!</p>
         </ErrorAlert>
@@ -66,6 +83,7 @@ function FilteredEventsPage(props) {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <>
+        {pageHeadData}
         <ErrorAlert>
           <p>No events found for the chosen filter!</p>
         </ErrorAlert>
@@ -80,6 +98,7 @@ function FilteredEventsPage(props) {
 
   return (
     <>
+      {pageHeadData}
       {/* <ResultsTitle daye={date} /> */}
       <EventList events={ filteredEvents } />
     </>
