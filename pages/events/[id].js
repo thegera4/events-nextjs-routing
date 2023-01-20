@@ -3,7 +3,6 @@ import { getEventById, getFeaturedEvents } from '../../helpers/api-utils'
 import EventSummary from '../../components/event-detail/event-summary'
 import EventLogistics from '../../components/event-detail/event-logistics'
 import EventContent from '../../components/event-detail/event-content'
-import ErrorAlert from '../../components/ui/error-alert'
 import Comments from '../../components/input/comments'
 import Head from 'next/head'
 
@@ -40,7 +39,6 @@ function SelectedEventPage(props) {
 
 export async function getStaticProps(context) {
   const eventId = context.params.id
-
   const event = await getEventById(eventId)
   return {
     props: {
@@ -49,16 +47,14 @@ export async function getStaticProps(context) {
     revalidate: 30
   }
 }
-
 export async function getStaticPaths() {
   const events = await getFeaturedEvents()
-
-  const paths = events.map(event => ({ params: { id: event.id } }))
-
+  const paths = events.map(event => ({ params: { id: event._id } }))
   return {
-    paths: paths,
+    paths,
     fallback: 'blocking'
   }
 }
 
 export default SelectedEventPage
+

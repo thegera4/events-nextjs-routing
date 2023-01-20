@@ -1,8 +1,13 @@
 import { MongoClient } from 'mongodb';
 
 export async function connectDatabase() {
-  const client = MongoClient.connect(process.env.MONGODB_URI)
-  return client;
+  try{
+    const client = MongoClient.connect(process.env.MONGODB_URI)
+    return client;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Could not connect to database!');
+  }
 }
 
 export async function insertDocument(client, collection, document) {

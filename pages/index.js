@@ -4,7 +4,6 @@ import NewsletterRegistration from "../components/input/newsletter-registration"
 import Head from 'next/head'
 
 export default function Home(props) {
-
   return (
     <div>
       <Head>  
@@ -23,7 +22,6 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const featuredEvents = await getFeaturedEvents();
-
   return {
     props: {
       featuredEvents
