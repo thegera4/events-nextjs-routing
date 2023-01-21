@@ -1,9 +1,16 @@
 import Link from 'next/link'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import classes from './main-header.module.css'
+import Button from '../ui/button'
 
 function MainHeader() {
   const { data: session, status } = useSession()
+
+  function logoutHandler(){
+    signOut()
+  }
+  
+  console.log('%c hello user!: ', 'color: green', session)
   
   return (
     <header className={classes.header}>
@@ -16,7 +23,7 @@ function MainHeader() {
             <Link href='/events'>Browse All Events</Link>
           </li>
           {
-            status === 'authenticated' ? (
+            session ? (
               <li>
                 <Link href='/create-event'>Create Event</Link>
               </li>
@@ -26,7 +33,12 @@ function MainHeader() {
               </li>
             )
           }
-          
+          {
+            session && 
+            <li>
+              <Button onClick={logoutHandler}>Logout</Button>
+            </li>
+          } 
         </ul>
       </nav>
     </header>

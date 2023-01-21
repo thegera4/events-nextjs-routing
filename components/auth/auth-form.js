@@ -48,7 +48,7 @@ function AuthForm() {
       if (!result.error) {
         //set auth state (context, redux)
         //setIsLoading(false);
-        router.replace('/profile')
+        router.replace('/')
       }
     } else {
       try{
