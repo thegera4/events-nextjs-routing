@@ -69,6 +69,7 @@ function Comments(props) {
 
   }
 
+  console.log(comments)
   return (
     <section className={classes.comments}>
       <button onClick={toggleCommentsHandler}>
