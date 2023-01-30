@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from '../ui/button';
-import Card from '../ui/Card';
+import Card from '../ui/card';
 import classes from './create-event.module.css';
 
 function CreateEventForm(props) {
